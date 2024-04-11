@@ -124,6 +124,10 @@ macro(draco_set_default_options)
     HELPSTRING "Build plugin library for Maya."
     VALUE OFF)
   draco_option(
+    NAME BUILD_SHARED_LIBS
+    HELPSTRING "Build shared Draco libraries."
+    VALUE ON)
+  draco_option(
     NAME DRACO_TRANSCODER_SUPPORTED
     HELPSTRING "Enable the Draco transcoder."
     VALUE OFF)
