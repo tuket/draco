@@ -126,7 +126,11 @@ macro(draco_set_default_options)
   draco_option(
     NAME BUILD_SHARED_LIBS
     HELPSTRING "Build shared Draco libraries."
-    VALUE ON)
+    VALUE OFF)
+  draco_option(
+    NAME DRACO_TINY_DECODE_SHARED_LIB
+    HELPSTRING "Build a tiny shared lib with just a few C plain functions for decoding Draco."
+    VALUE OFF)
   draco_option(
     NAME DRACO_TRANSCODER_SUPPORTED
     HELPSTRING "Enable the Draco transcoder."
@@ -237,6 +241,11 @@ macro(draco_set_optional_features)
 
   if(DRACO_MAYA_PLUGIN)
     draco_enable_feature(FEATURE "DRACO_MAYA_PLUGIN")
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+  endif()
+
+  if(DRACO_TINY_DECODE_SHARED_LIB)
+    draco_enable_feature(FEATURE "DRACO_TINY_DECODE_SHARED_LIB")
     set(CMAKE_POSITION_INDEPENDENT_CODE ON)
   endif()
 

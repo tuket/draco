@@ -540,6 +540,9 @@ list(APPEND draco_unity_plug_sources
             "${draco_src_root}/unity/draco_unity_plugin.cc"
             "${draco_src_root}/unity/draco_unity_plugin.h")
 
+list(APPEND draco_tiny_decode_shared_lib_sources
+            "${draco_src_root}/shared_lib/draco_shared_lib.cc")
+
 list(APPEND draco_maya_plug_sources
             "${draco_src_root}/maya/draco_maya_plugin.cc"
             "${draco_src_root}/maya/draco_maya_plugin.h")
@@ -1081,6 +1084,16 @@ else()
     if(APPLE)
       set_target_properties(dracodec_unity PROPERTIES BUNDLE true)
     endif()
+  endif()
+
+  if(DRACO_TINY_DECODE_SHARED_LIB)
+    draco_add_library(
+      NAME draco_tiny_dec
+      TYPE SHARED
+      SOURCES ${draco_tiny_decode_shared_lib_sources}
+      DEFINES ${draco_defines}
+      INCLUDES ${draco_include_paths}
+      LIB_DEPS ${draco_plugin_dependency})
   endif()
 
   if(DRACO_MAYA_PLUGIN)
