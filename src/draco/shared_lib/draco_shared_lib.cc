@@ -1,5 +1,10 @@
 #include "draco/draco_features.h"
 
+int fooooo(int x)
+{
+	return x + 3;
+}
+
 #ifdef DRACO_TINY_DECODE_SHARED_LIB
 
 #include "draco/attributes/geometry_attribute.h"
@@ -176,8 +181,19 @@ void EXPORT_API Draco_Attribute_GetData(DecompressedMesh m, Attribute a, Data* d
 		dataPtr += attribSize;
 	}
 }
-
 void EXPORT_API Draco_Data_Release(Data d) { delete[] (char*)d.data; }
+
+/*
+struct Data2 {
+	void* data;
+};
+
+int EXPORT_API fifififif(Data2* d)
+{
+	delete[](char*)d->data;
+	return 5;
+}
+*/
 
 }
 }

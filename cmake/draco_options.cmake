@@ -124,10 +124,6 @@ macro(draco_set_default_options)
     HELPSTRING "Build plugin library for Maya."
     VALUE OFF)
   draco_option(
-    NAME BUILD_SHARED_LIBS
-    HELPSTRING "Build shared Draco libraries."
-    VALUE OFF)
-  draco_option(
     NAME DRACO_TINY_DECODE_SHARED_LIB
     HELPSTRING "Build a tiny shared lib with just a few C plain functions for decoding Draco."
     VALUE OFF)
